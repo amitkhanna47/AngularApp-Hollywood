@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html ng-app="entApp">
+
+<head>
+<link rel="stylesheet" href="main.css" />
+</head>
+
+
+<body  ng-controller="appCtrl">
+
+<ul class="animatedBack" ng-show="anim"  ng-hide="!anim">
+	<li class="inner-fade" ng-repeat="backdrop in moviPosters.backdrops">			
+			<img ng-src="{{backdrop.file_path}}" />
+	</li>
+</ul>
+
+<!-- b293ffe7d4a175c739c5902ef154a554 -->
+<div class="main" ng-class="{fadeBg: anim==true}">
+	<p class="fadedStyle">MovieWood App by Amit Khanna</p>	
+	<div class="fright"><span class="light">Search</span> <input class="search mr20" ng-model="search" /></div>
+	<div ng-switch="subview">
+		
+		<div ng-switch-when="standard" ng-include="'standard.html'"></div>
+		<div ng-switch-when="front" ng-include="'front.html'"></div>
+	</div>
+</div>
+
+<script type="text/javascript" src="angular.min.js"></script>
+<script type="text/javascript" src="vendor/jquery.js"></script>
+<script type="text/javascript" src="controllers.js"></script>
+<script type="text/javascript" src="custom.js"></script>
+
+
+</body>
+</html> 

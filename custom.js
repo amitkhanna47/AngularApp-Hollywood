@@ -1,0 +1,3 @@
+$(function(){
+	$('.animatedBack').addClass('hide');
+});

@@ -1,0 +1,11 @@
+<div ng-controller="moviCastPageCtrl">			
+	<ul class="cast">
+		<li class="fleft borPadd" ng-repeat="cast in moviCast.cast">
+			<img class="fleft" ng-src="{{cast.profile_path}}" />
+			<div>
+				<span class="blueText">{{cast.name}}  <br /></span>
+				<span>Role - {{cast.character}} <br /></span>	
+			</div>
+		</li>			
+	</ul>	
+</div>
