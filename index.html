@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html ng-app="entApp">
+
+<head>
+<link rel="stylesheet" href="main.css" />
+</head>
+<script type="text/javascript" src="angular.min.js"></script>
+<script type="text/javascript" src="controllers.js"></script>
+
+<body>
+<!-- b293ffe7d4a175c739c5902ef154a554 -->
+<div class="main" ng-controller="appCtrl">
+	<p class="fadedStyle">MovieWood App by Amit Khanna</p>	
+	<div class="fright"><span class="light">Search</span> <input class="search mr20" ng-model="search" /></div>
+	<div ng-switch="subview">
+		<div ng-switch-when="front" ng-include="'front.html'"></div>
+		<div ng-switch-when="standard" ng-include="'standard.html'"></div>
+	</div>
+</div>
+
+
+
+</body>
+</html> 

@@ -1,0 +1,10 @@
+<div>	
+	
+			<h3>Latest Releases </h3>
+			<ul class="rowUl">
+				<li ng-repeat="poster_path in data.results | filter:search" >						
+					<a href="#/latest/released/movies/{{poster_path.id}}"><img ng-src="{{poster_path.poster_path}}" /></a>
+				</li>		
+			</ul>			
+
+</div>

@@ -1,0 +1,31 @@
+<div ng-controller="moviDetailPageCtrl">		
+	<p><img  class="mr10" ng-src="{{moviDetails.poster_path}}" width="100" align="left" /></p>
+	<h2><span class="blueText">{{moviDetails.title}}</span></h2>
+	<h3>Overview</h3>
+	<p>{{moviDetails.overview}}</p>
+	
+	<ul class="fleft mr20 light">
+		<h3>Genres</h3>
+		<li ng-repeat="name in moviDetails.genres">{{name.name}}</li>
+	</ul>
+	
+	<ul class="fleft mr20 light">
+		<h3>Released on</h3>
+		<li>{{moviDetails.release_date}}</li>
+		
+		<h3>Duration</h3>
+		<li ng-hide="moviDetails.runtime">Not Available</li>
+		<li ng-show="moviDetails.runtime">{{moviDetails.runtime / 60 | number:0 }} hours {{moviDetails.runtime % 60 }} mins </li>
+		
+	</ul>
+	
+	<ul class="fleft mr20 light">
+		<h3 ng-show="moviDetails.production_countries">Production</h3>
+		<li ng-repeat="production_countries in moviDetails.production_countries">{{production_countries.name}}</li>
+		
+		<h3>Budget</h3>
+		<li><span ng-hide="moviDetails.budget">Not Available</span></li>
+		<li><span ng-show="moviDetails.budget">{{moviDetails.budget | currency}}</span></li>
+	</ul>
+	
+</div>

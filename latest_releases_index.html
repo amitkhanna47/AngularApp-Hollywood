@@ -1,0 +1,9 @@
+<div ng-controller="latestCtrl">	
+	
+			<div ng-switch="subview">
+				<div ng-switch-when="list" ng-include="'latest_releases_list.html'">Loading...</div>
+				<div ng-switch-when="movi_details" ng-include="'movie_details_index.html'">Loading...</div>				
+			</div> 
+			
+	
+</div>

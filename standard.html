@@ -1,0 +1,17 @@
+<div ng-controller="standardCtrl">
+	<div class="fl">	
+		<h3></h3>	
+		<ul>			
+			<li><a href="#/home">Home</a></li>
+			<li ng-class="{activeBlk: subview=='latest'}"><a href="#/latest/released/movies">{{param}} Playing </a></li>
+			<li ng-class="{activeBlk: subview=='credits'}"><a href="#/credits">Credits</a></li>
+		</ul>
+	</div>
+	<div class="fr">
+			<div ng-switch="subview">
+				<div ng-switch-when="latest" ng-include="'latest_releases_index.html'">Loading...</div>
+				<div ng-switch-when="credits" ng-include="'credits.html'"></div>				
+			</div> 
+			
+	</div>
+</div>
