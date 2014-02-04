@@ -1,0 +1,14 @@
+<div>
+	<h3>Last Vegas | Film Review</h3>
+	<p><i>Last Vegas</i> is the story of four 70-ish friends, popularly known as the Flatbush Four in their youth – bachelor Billy (Michael Douglas), widower Paddy (Robert De Niro), divorced Archie (Morgan Freeman) and long-married husband Sam (Kevin Kline). They have been best friends for almost six decades. But with each passing year, they find the spark missing in their lives, that was once in full swing during their glorious days, to the fullest, on the streets of Brooklyn.</p>
+	
+	<h3>Popular Now </h3>
+	<ul class="rowUl">
+		<li ng-repeat="poster_path in data.results | limitTo:10">						
+			<a href="#/latest/released/movies/{{poster_path.id}}"><img ng-src="{{poster_path.poster_path}}" /></a>
+		</li>		
+	</ul>
+	<p align="right"><a class="link" href="#/latest/released/movies">Show all released</a></p>
+
+	
+</div>

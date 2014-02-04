@@ -1,0 +1,13 @@
+<div ng-controller="moviDetailsCtrl">	
+			<ul class="horNav">
+					<li ng-class="{activeBlk: subview=='details'}"><a href="">Details</a></li>
+					<li ng-class="{activeBlk: subview=='posters'}"><a href="#/latest/released/movies/">Posters</a></li>
+					<li  ng-class="{activeBlk: subview=='Reviews'}"><a href="">Reviews</a></li>
+			</ul>
+			<div class="clear"></div>
+			<div class="detailBox" ng-switch="subview">				
+				<div ng-switch-when="details" ng-include="'movi_details.html'">Loading...</div>				
+				<div ng-switch-when="posters" ng-include="'movi_posters.html'">Loading...</div>				
+				<div ng-switch-when="Reviews" ng-include="'movi_reviews.html'">Loading...</div>				
+			</div> 	
+</div>

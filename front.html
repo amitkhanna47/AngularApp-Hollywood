@@ -1,0 +1,16 @@
+<div ng-controller="frontCtrl">
+	<div class="fl">	
+		<h3></h3>	
+		<ul>
+			<li><a href="#/latest/released/movies">Today in Theaters</a></li>
+			<!--<li><a href="#/latest/released/movies">Upcoming Movies</a></li>-->
+			<li><a href="#/latest/released/shows">Top TV Shows</a></li>
+		</ul>
+	</div>
+	<div class="fr">
+			<div ng-switch="subview">
+				<div ng-switch-when="home" ng-include="'front_part.html'"></div>
+			</div>
+			
+	</div>
+</div>
