@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html ng-app="entApp" id="ng-app" xmlns:ng="http://angularjs.org">
+
+<head>
+<title>Moviewood | Amit Khanna's App</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css" />
+<link rel="stylesheet" href="main.css" />
+</head>
+
+
+<body  ng-controller="appCtrl"  ng-class="{fadeBg: anim==true}">
+
+<ul class="animatedBack hidden-xs" ng-show="anim"  ng-hide="!anim">				
+		<img  class="inner-fade" ng-repeat="backdrop in moviPosters.backdrops" src="{{backdrop.file_path}}" />	
+</ul>
+
+<div class="main col-xs-spacv0 container">
+	<h4 class="fadedStyle hidden-xs"><img src="images/logo.png" /></h4>	
+	<div class="fright"> 
+			
+			<!-- -->
+		 <div class="input-group">
+			      <!--<span class="input-group-addon">
+			        <input  type="checkbox" ng-model="db" /> Search Database
+			      </span> -->
+	      <div class="relative tab">
+	      		<span><i class="glyphicon glyphicon-search"></i></span> 
+	      		<div class="tc"><input placeholder="enter movie name" class="search" ng-model="search" /></div>
+	      		<div class="tc"><button ng-click="searchMovie()" type="button" class="btn btn-blue">Search</button></div> 
+	      </div>
+	    </div>
+		<!-- -->
+				
+	</div>
+	<div ng-switch="subview">		
+		<div ng-switch-when="standard" ng-include="'standard.html'"></div>
+		<div ng-switch-when="front" ng-include="'front.html'"></div>
+		<div ng-switch-when="dbpage" ng-include="'dbsearch.html'"></div>
+	</div>
+</div>
+
+<script type="text/javascript" src="angular.min.js"></script>
+<script type="text/javascript" src="vendor/jquery.js"></script>
+<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="controllers.js"></script>
+<script type="text/javascript" src="filters.js"></script>
+<script type="text/javascript" src="custom.js"></script>
+
+
+</body>
+</html> 
