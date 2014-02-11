@@ -9,8 +9,10 @@
 	</div>
 	<div class="fr">
 			<div ng-switch="subview">
+				<div ng-switch-when="credits" ng-include="'credits.html'"></div>
 				<div ng-switch-when="latest" ng-include="'latest_releases_index.html'">Loading...</div>
-				<div ng-switch-when="credits" ng-include="'credits.html'"></div>				
+				<div ng-switch-when="avc" ng-include="'latest32_releases_index.html'">Loading...</div>
+								
 			</div> 
 			
 	</div>

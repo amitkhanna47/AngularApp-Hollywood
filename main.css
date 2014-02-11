@@ -11,10 +11,15 @@
 
 }
 
+*{
+	box-sizing:border-box;
+}
+
 body{
 background:#000 url(images/background.jpg) no-repeat scroll top center;
 font:13px arial;
 color:#bcbcbc;
+padding:0; margin:0;
 }
 
 *{
@@ -54,7 +59,7 @@ padding:3px;
 width:960px;
 margin:20px auto 20px;
 background:#000;
-background:rgba(0,0,0,0.95);
+background:rgba(0,0,0,0.8);
 min-height:500px;
 border-radius:20px 0 20px 0;
 overflow:hidden;
@@ -106,7 +111,7 @@ min-height:138px;
 	opacity:0.5;
 }
 
-.link:hover{
+.link:hover, .blueTxt{
 	opacity:1;
 }
 
@@ -219,3 +224,70 @@ input.search{
 	outline:0;
 }
 
+.stairStyle img{
+	width:500px;
+}
+
+.stairStyle li:nth-child(2n){
+	float:right;
+}
+
+.borPadd{
+	border:1px solid #666;
+	padding:10px;
+}
+
+.cast li{
+width:33%;
+min-height:140px;
+padding:0 20px 0 0;
+}
+
+.cast img{
+	max-width:100%;	
+	margin-right:10px;
+}
+
+.cast div{
+	margin-left:10px;
+}
+
+.animatedBack img{
+ /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index:-1;
+}
+
+.animatedBack li{
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+
+.animatedBack li:after{
+ 
+  width: 100%;
+  height: 100%;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index:-1;
+  background:url(images/dotpattern.png) repeat scroll;
+  content:'';
+}
+
+.hide img{
+	display:none;
+}
