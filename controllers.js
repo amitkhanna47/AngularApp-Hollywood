@@ -211,3 +211,28 @@ app.controller('moviCastPageCtrl',function($scope, $route, $routeParams, request
 		});		
 });
 
+
+/* directive for animation */
+app.directive("innerFade", function () {
+   var res = {
+     restrict : 'C',
+     link     : function (scope, element, attrs) {
+         		if($(element).index() == 0) ani($(element));  		           		
+        }
+     };
+  return res;
+});
+
+
+function ani(elem){
+	elem.css('zIndex',1);
+	elem.fadeIn(3000,function(){
+		elem.css('zIndex',0);	
+		if(elem.next().length) ani(elem.next());
+		else
+		{
+			$('.hide li').hide();
+			ani($('.hide li').eq(0));
+		}   
+  	});
+}
