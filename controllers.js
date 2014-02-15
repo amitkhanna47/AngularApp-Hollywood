@@ -15,19 +15,19 @@ app.config(function($routeProvider){
 		}
 	)	
 	.when(
-		"/latest/released/:categoryId/:moviId",
+		"/latest/:latestType/:categoryId/:moviId",
 		{
 			action:"standard.latest.movi_details.details"
 		}
 	)
 	.when(
-		"/latest/released/:categoryId/:moviId/posters",
+		"/latest/:latestType/:categoryId/:moviId/posters",
 		{
 			action:"standard.latest.movi_details.posters"
 		}
 	)
 	.when(
-		"/latest/released/:categoryId/:moviId/castcrew",
+		"/latest/:latestType/:categoryId/:moviId/castcrew",
 		{
 			action:"standard.latest.movi_details.cast"
 		}
@@ -229,15 +229,15 @@ app.directive("innerFade", function () {
 });
 
 
-function ani(elem){
-	elem.css('zIndex',1);
-	elem.fadeIn(3000,function(){
-		elem.css('zIndex',0);	
-		if(elem.next().length) ani(elem.next());
-		else
-		{
-			$('.hide li').hide();
-			ani($('.hide li').eq(0));
-		}   
+function ani(elem){	
+	elem.fadeIn(5000,function(){
+		elem.fadeOut(5000, function(){				
+			if(elem.next().length) ani(elem.next());
+			else
+			{
+				$('.hide img').hide();
+				ani($('.hide img').eq(0));
+			}
+		});   
   	});
 }

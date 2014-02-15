@@ -9,9 +9,9 @@
 <body  ng-controller="appCtrl">
 
 <ul class="animatedBack" ng-show="anim"  ng-hide="!anim">
-	<li class="inner-fade" ng-repeat="backdrop in moviPosters.backdrops">			
-			<img ng-src="{{backdrop.file_path}}" />
-	</li>
+				
+			<img  class="inner-fade" ng-repeat="backdrop in moviPosters.backdrops" src="{{backdrop.file_path}}" />
+	
 </ul>
 
 <!-- b293ffe7d4a175c739c5902ef154a554 -->

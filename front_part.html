@@ -7,6 +7,9 @@
 		<li ng-repeat="poster_path in data.results | limitTo:10">						
 			<a href="#/latest/released/movies/{{poster_path.id}}"><img ng-src="{{poster_path.poster_path}}" /></a>
 		</li>		
+		
+		
+		
 	</ul>
 	<p align="right"><a class="link" href="#/latest/released/movies">Show all released</a></p>
 

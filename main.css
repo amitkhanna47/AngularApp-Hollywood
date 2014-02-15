@@ -265,7 +265,9 @@ padding:0 20px 0 0;
   position: fixed;
   top: 0;
   left: 0;
-  z-index:-1;
+  
+  display:none;
+  
 }
 
 .animatedBack{
@@ -293,8 +295,7 @@ position:absolute;
   content:'';
 }
 
-.hide li{
-	display:none;
+.hide li{	
 	position:absolute;
 }
 
