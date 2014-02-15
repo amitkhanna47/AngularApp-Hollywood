@@ -4,7 +4,7 @@
 	
 	<h3>Popular Now </h3>
 	<ul class="rowUl">
-		<li ng-repeat="poster_path in data.results | limitTo:10">						
+		<li ng-repeat="poster_path in data.results | limitTo:10  | filter:search">						
 			<a href="#/latest/released/movies/{{poster_path.id}}"><img ng-src="{{poster_path.poster_path}}" /></a>
 		</li>		
 		
