@@ -126,7 +126,7 @@ app.service("dataService",function($http){
 	return {getData:getData, setPath:setPath};
 });
 
-app.controller('appCtrl',function($scope, $route, $rootScope, $routeParams, requestService, dataService){
+app.controller('appCtrl',function($scope, $route, $rootScope, $routeParams, $timeout, requestService, dataService){
 	global = $scope;
 	$scope.anim = false;
 	
@@ -143,10 +143,32 @@ app.controller('appCtrl',function($scope, $route, $rootScope, $routeParams, requ
 	});			
 	
 	dataService.getData("/3/movie/now_playing").success(function(data){			
-			$scope.data = data;
-			$scope.data = dataService.setPath(data, null, "w92");
-			//console.log(data);			
+			$scope.dataTmp = dataService.setPath(data, null, "w92");
+			//console.log(data);
+			$scope.fadeRandomRepeat(9);			
 		});
+		
+	$scope.fadeRandomRepeat = function(limit){			
+			var pages = Math.floor($scope.dataTmp.results.length / limit);
+			var backupResults = $scope.dataTmp.results;		
+			$scope.data = $scope.dataTmp;	
+			var s = 0, e = limit, time = 0;					
+			function timeout(){
+				if(pages){					
+					console.log(s); console.log(e); console.log(time);
+					var appCtrlTime = $timeout(function(){
+						$scope.data.results = backupResults;	
+						//console.log($scope.data.results);					
+						$scope.data.results = $scope.data.results.slice(s,e);						
+						//console.log($scope.data.results);
+						s=limit+1, e=limit+limit+1, time=5000, pages--;												
+						timeout();							
+					},time);	
+				}
+			}			
+			timeout();	
+	}
+		
 			
 });
 
