@@ -6,7 +6,7 @@
 </head>
 
 
-<body  ng-controller="appCtrl">
+<body  ng-controller="appCtrl"  ng-class="{fadeBg: anim==true}">
 
 <ul class="animatedBack" ng-show="anim"  ng-hide="!anim">
 				
@@ -15,7 +15,7 @@
 </ul>
 
 <!-- b293ffe7d4a175c739c5902ef154a554 -->
-<div class="main" ng-class="{fadeBg: anim==true}">
+<div class="main">
 	<p class="fadedStyle">MovieWood App by Amit Khanna</p>	
 	<div class="fright"><span class="light">Search</span> <input class="search mr20" ng-model="search" /></div>
 	<div ng-switch="subview">

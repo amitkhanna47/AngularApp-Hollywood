@@ -222,22 +222,26 @@ app.directive("innerFade", function () {
    var res = {
      restrict : 'C',
      link     : function (scope, element, attrs) {
-         		if($(element).index() == 0) ani($(element));  		           		
+         		if($(element).index() == 0) {         			
+         			ani($(element));
+         		}  		           		
         }
      };
   return res;
 });
 
 
-function ani(elem){	
-	elem.fadeIn(5000,function(){
-		elem.fadeOut(5000, function(){				
-			if(elem.next().length) ani(elem.next());
-			else
-			{
-				$('.hide img').hide();
-				ani($('.hide img').eq(0));
-			}
-		});   
-  	});
+function ani(elem){
+	elem.css('opacity',0);
+	console.log(elem.css('opacity'));	
+	elem.animate({opacity:1},3000, function(){
+			$(this).animate({opacity:0},3000, function(){
+					if($(this).next().length) ani($(this).next());
+					else
+					{						
+						ani($('.hide img').eq(0));
+					}
+			});
+	});		  
+  	
 }
