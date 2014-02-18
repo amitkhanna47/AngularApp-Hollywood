@@ -1,4 +1,4 @@
-var app = angular.module('entApp',[]);
+var app = angular.module('entApp',['cusFilters']);
 
 app.config(function($routeProvider){
 	$routeProvider
@@ -303,9 +303,17 @@ function ani(elem){
   	
 }
 
-/*filters*/
-angular.module('filters',[]).filter('noimg',function(elem){
-	
-});
+/************************** CUSTOM FILTERS MODULE BY AMIT KHANNA ******************************************/
+angular.module('cusFilters', []).filter('noimg', function () {
+        return function (items, path) {        	        	
+        	var newArray = [];
+            angular.forEach(items, function(item){            		
+            		if(!item[path]) return;
+            		else newArray.push(item)	
+            });            
+            return newArray;
+        }
+    });
+/************************** XX CUSTOM FILTERS MODULE BY AMIT KHANNA XX ******************************************/
 
 
