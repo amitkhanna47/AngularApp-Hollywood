@@ -88,7 +88,7 @@ app.service("dataService",function($http){
 	function getData(url, addParams){
 			
 		url = addParams ? prefix_url + url + "?api_key=b293ffe7d4a175c739c5902ef154a554&callback=JSON_CALLBACK" + addParams : prefix_url + url + "?api_key=b293ffe7d4a175c739c5902ef154a554&callback=JSON_CALLBACK";
-		console.log(url);		
+			
 		return $http.jsonp(url);	
 				
 	}
