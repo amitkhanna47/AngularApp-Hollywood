@@ -279,6 +279,7 @@ input.search:focus, input.search:hover{
 	min-height:140px;
 	display:inline-block;
 	float:none;
+	vertical-align:top;
 }
 
 .cast img{
