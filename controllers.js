@@ -233,7 +233,7 @@ app.controller('moviPosterPageCtrl',function($scope, $route, $routeParams, reque
 
 app.controller('moviCastPageCtrl',function($scope, $route, $routeParams, requestService, dataService){
 	dataService.getData("/3/movie/" + $routeParams.moviId + "/credits").success(function(data){			
-			$scope.moviCast = dataService.setPath(data, null, "w92");						
+			$scope.moviCast = dataService.setPath(data, null, "w185");						
 			//console.log($scope.moviReviews);			
 		});		
 });

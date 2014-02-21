@@ -17,7 +17,7 @@
 
 body{
 background:#000 url(images/background.jpg) no-repeat scroll top center;
-font:14px/1.5em arial;
+font:14px/1.5 arial;
 color:#bcbcbc;
 padding:0; margin:0;
 }
@@ -39,7 +39,7 @@ h1:first-child, h2:first-child, h3:first-child{
 }
 
 h2, h3{
-font-size:1.5em;	/*  14 base */
+font-size:1.3em;	/*  14 base */
 }
 
 ul,li{list-style:none; padding:0; margin:0;}
@@ -64,7 +64,7 @@ padding:3px;
 }
 
 .main{
-max-width:1200px;
+max-width:1170px;
 margin:20px auto 20px;
 background:#000;
 background:rgba(0,0,0,0.8);
@@ -73,8 +73,14 @@ border-radius:20px 0 20px 0;
 overflow:hidden;
 float:none;
 }
-.fl{
 
+.fl{
+	padding-left:0;
+}
+
+.fl a{
+	text-decoration:none;
+	outline:0;
 } 
 
 .fl ul{
@@ -102,7 +108,7 @@ color:#cdf1ff;
 	font-weight:bold;
 }
 
-.fr{padding-right:30px}
+.fr{}
 
 
 img{
@@ -110,17 +116,18 @@ max-width:100%;
 }
 
 .rowUl li{
-float:left;
 border:1px solid gray;
 padding-top:15px;
 padding-bottom:15px;
 text-align:center;
-min-height:175px;
+min-height:204px;
 }
 
-.rowUl li img{
-min-height:138px;
+.largeList li{
+	min-height:310px;
 }
+
+
 .link{
 	color:rgb(39,125,201);
 	opacity:0.5;
@@ -269,13 +276,13 @@ input.search:focus, input.search:hover{
 }
 
 .cast li{
-width:33%;
-min-height:140px;
-padding:0 20px 0 0;
+	min-height:140px;
+	display:inline-block;
+	float:none;
 }
 
 .cast img{
-	max-width:100%;	
+	max-height:200px;
 	margin-right:10px;
 }
 
@@ -340,4 +347,13 @@ position:absolute;
 
 .animatedRowUI li{
 	
+}
+
+
+
+@media screen and (max-width:479px){
+	.col-xxs{
+		width:100%;
+		float:none;
+	}
 }

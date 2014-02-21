@@ -10,15 +10,15 @@
 
 <body  ng-controller="appCtrl"  ng-class="{fadeBg: anim==true}">
 
-<ul class="animatedBack" ng-show="anim"  ng-hide="!anim">
+<ul class="animatedBack hidden-xs" ng-show="anim"  ng-hide="!anim">
 				
 			<img  class="inner-fade" ng-repeat="backdrop in moviPosters.backdrops" src="{{backdrop.file_path}}" />
 	
 </ul>
 
 <!-- b293ffe7d4a175c739c5902ef154a554 -->
-<div class="main">
-	<h4 class="fadedStyle">MovieWood - An App by Amit Khanna</h4>	
+<div class="main container">
+	<h4 class="fadedStyle hidden-xs">MovieWood - An App by Amit Khanna</h4>	
 	<div class="fright hidden-xs"> <div class="search-box"><span><i class="glyphicon glyphicon-search"></i></span> <input class="search mr20" ng-model="search" /></div></div>
 	<div ng-switch="subview">
 		
