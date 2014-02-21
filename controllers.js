@@ -145,24 +145,26 @@ app.controller('appCtrl',function($scope, $route, $rootScope, $routeParams, $tim
 	dataService.getData("/3/movie/now_playing").success(function(data){			
 			$scope.dataTmp = dataService.setPath(data, null, "w185");
 			//console.log(data);
-			$scope.fadeRandomRepeat(9);			
+			$scope.fadeRandomRepeat(10);			
 		});
 		
 	$scope.fadeRandomRepeat = function(limit){			
 			var pages = Math.floor($scope.dataTmp.results.length / limit);
+			console.log(pages);				
 			var backupResults = $scope.dataTmp.results;		
-			$scope.data = $scope.dataTmp;	
+			//$scope.data = $scope.dataTmp;	
 			var s = 0, e = limit, time = 0;					
 			function timeout(){
 				if(pages){					
-					console.log(s); console.log(e); console.log(time);
-					var appCtrlTime = $timeout(function(){
-						$scope.data.results = backupResults;	
-						//console.log($scope.data.results);					
-						$scope.data.results = $scope.data.results.slice(s,e);						
+					//console.log(s); console.log(e); console.log(time);
+					var appCtrlTime = $timeout(function(){						
+						$scope.dataTmp.results = backupResults;										
+						$scope.dataTmp.results = $scope.dataTmp.results.slice(s,e);
+						$scope.data = $scope.dataTmp;		
+						console.log($scope.data.results);			
 						//console.log($scope.data.results);
 						s=limit+1, e=limit+limit+1, time=5000, pages--;												
-						timeout();							
+						//timeout();							
 					},time);	
 				}
 			}			
