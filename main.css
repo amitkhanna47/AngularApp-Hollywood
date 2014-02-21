@@ -163,7 +163,18 @@ color:#2c2c2c;
 .horNav li{
 	float:left;
 	margin:0 5px;
-	padding:2px 3px;
+	padding:2px 10px;
+}
+
+.horNav li a{
+	text-decoration:none;
+	outline:0;
+}
+
+.horNav .activeBlk {
+    box-shadow: 0 1px rgba(255, 255, 255, 0.7) inset;
+    height: 30px;
+    margin-bottom: -5px;
 }
 
 .clear{
@@ -173,6 +184,7 @@ color:#2c2c2c;
 .detailBox{
 	padding:15px;
 	border:1px solid #666;
+	border-top:5px solid #666;
 	overflow:hidden;
 }
 
@@ -423,6 +435,6 @@ position:absolute;
 
 .aniMove-leave.aniMove-leave-active,
 .aniMove-enter {
-    top:50px;
+    top:100px;
     opacity:0;
 }
