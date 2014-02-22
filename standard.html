@@ -1,11 +1,15 @@
 <div ng-controller="standardCtrl" class="row">
-	<div class="fl col-md-3">	
-		<h3></h3>	
-		<ul>			
-			<li><a href="#/home">Home</a></li>
-			<li ng-class="{activeBlk: subview=='latest'}"><a href="#/latest/released/movies">Movies {{latestType}}</a></li>
-			<li ng-class="{activeBlk: subview=='credits'}"><a href="#/credits">Credits</a></li>
-		</ul>
+	<div class="toggle">
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse"> <span class="glyphicon glyphicon-align-justify"></span></button>		
+	</div>
+	<div class="fl col-md-3 navbar">	
+		<div class="navbar-collapse collapse">	
+			<ul>			
+				<li><a href="#/home">Home</a></li>
+				<li ng-class="{activeBlk: subview=='latest'}"><a href="#/latest/released/movies">Movies {{latestType}}</a></li>
+				<li ng-class="{activeBlk: subview=='credits'}"><a href="#/credits">Credits</a></li>
+			</ul>
+		</div>
 	</div>
 	<div class="fr col-md-9">
 			<div ng-switch="subview">

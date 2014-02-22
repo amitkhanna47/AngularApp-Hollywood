@@ -1,8 +1,12 @@
 <div ng-controller="frontCtrl" class="row">
-	<a class="btn" data-toggle="collapse" data-target=".nav-collapse"></a>
+	
+	<div class="toggle">
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse"> <span class="glyphicon glyphicon-align-justify"></span></button>		
+	</div>
+                
 	<div class="fl col-md-3 navbar">	
-		<div class="nav-collapse">	
-			<ul>
+		<div class="navbar-collapse collapse">	
+			<ul class="">
 				<li><a href="#/latest/released/movies">Today in Theaters</a></li>
 				<!--<li><a href="#/latest/released/movies">Upcoming Movies</a></li>-->
 				<li><a href="#/latest/upcoming/movies">Upcoming movies</a></li>
