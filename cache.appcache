@@ -7,12 +7,12 @@ main.css
 images/background.jpg
 images/logo.png
 angular.min.js
-
-# offline.html will be displayed if the user is offline
-FALLBACK:
-index.html images/offline.html
+images/offline.html
 
 # All other resources (e.g. sites) require the user to be online. 
 NETWORK:
 *
 
+# offline.html will be displayed if the user is offline
+FALLBACK:
+index.html images/offline.html
