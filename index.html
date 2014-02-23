@@ -16,10 +16,22 @@
 
 <div class="main col-xs-spacv0 container">
 	<h4 class="fadedStyle hidden-xs"><img src="images/logo.png" /></h4>	
-	<div class="fright"> <div class="search-box"><span><i class="glyphicon glyphicon-search"></i></span> <input class="search mr20" ng-model="search" /></div></div>
+	<div class="fright"> 
+		<div class="search-box">			
+			<!-- -->
+		 <div class="input-group">
+	      <span class="input-group-addon">
+	        <input  type="checkbox" ng-model="db" /> Database {{db}}
+	      </span>
+	      <div class="relative"><span><i class="glyphicon glyphicon-search"></i></span> <input class="search mr20" ng-model="search" /></div>
+	    </div>
+		<!-- -->
+		</div>		
+	</div>
 	<div ng-switch="subview">		
 		<div ng-switch-when="standard" ng-include="'standard.html'"></div>
 		<div ng-switch-when="front" ng-include="'front.html'"></div>
+		<div ng-switch-when="dbpage" ng-include="'dbsearch.html'">Loading...</div>
 	</div>
 </div>
 

@@ -1,0 +1,26 @@
+<div ng-controller="frontCtrl" class="row">
+	
+	<div class="toggle">
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse"> <span class="glyphicon glyphicon-align-justify"></span></button>		
+	</div>
+                
+	<div class="fl col-md-3 navbar">	
+		<div class="navbar-collapse collapse">	
+			<ul class="">
+				<li><a href="#/latest/released/movies">Today in Theaters</a></li>
+				<!--<li><a href="#/latest/released/movies">Upcoming Movies</a></li>-->
+				<li><a href="#/latest/upcoming/movies">Upcoming movies</a></li>
+				<li><a href="#/credits">Credits</a></li>
+			</ul>
+		</div>	
+	</div>
+	<div class="fr col-md-9">
+			<h3>Search Results</h3>
+			<ul class="rowUl animatedRowUI">
+				<li class="col-md-2 col-sm-4 col-xs-6 col-xxs" ng-repeat="poster_path in data.results | filter:search" ng-animate="'animate'">						
+					<a href="#/latest/released/movies/{{poster_path.id}}"><img ng-src="{{poster_path.poster_path}}" /></a>
+				</li>		
+			</ul>
+			<div class="clearfix"></div>			
+	</div>
+</div>

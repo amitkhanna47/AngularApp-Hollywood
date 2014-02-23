@@ -63,10 +63,10 @@ app.service("requestService",function(){
 	
 		if(prefix==undefined || prefix=="")
 		{
-			console.log(sections[0]); 
+			 
 			return sections[0];
 		}			
-		console.log(sections[prefix.split('.').length]);
+		
 		
 		if(sections[prefix.split('.').length] == 'movi_details'){
 			global.anim = true;			
@@ -88,7 +88,7 @@ app.service("dataService",function($http){
 	function getData(url, addParams){
 			
 		url = addParams ? prefix_url + url + "?api_key=b293ffe7d4a175c739c5902ef154a554&callback=JSON_CALLBACK" + addParams : prefix_url + url + "?api_key=b293ffe7d4a175c739c5902ef154a554&callback=JSON_CALLBACK";
-		//console.log(url);		
+		console.log(url);		
 		return $http.jsonp(url);	
 				
 	}
@@ -129,7 +129,7 @@ app.service("dataService",function($http){
 app.controller('appCtrl',function($scope, $route, $rootScope, $routeParams, $timeout, requestService, dataService){
 	global = $scope;
 	$scope.anim = false;
-	
+		
 	$scope.$on("$routeChangeSuccess",function(){
 		$scope.anim = false;		
 		action = $route.current.action;
@@ -146,11 +146,11 @@ app.controller('appCtrl',function($scope, $route, $rootScope, $routeParams, $tim
 			$scope.dataTmp = dataService.setPath(data, null, "w185");
 			//console.log(data);
 			$scope.fadeRandomRepeat(10);			
-		});
+		});	
 		
 	$scope.fadeRandomRepeat = function(limit){			
 			var pages = Math.floor($scope.dataTmp.results.length / limit);
-			console.log(pages);				
+							
 			var backupResults = $scope.dataTmp.results;		
 			//$scope.data = $scope.dataTmp;	
 			var s = 0, e = limit, time = 0;					
@@ -161,7 +161,7 @@ app.controller('appCtrl',function($scope, $route, $rootScope, $routeParams, $tim
 						$scope.dataTmp.results = backupResults;										
 						$scope.dataTmp.results = $scope.dataTmp.results.slice(s,e);
 						$scope.data = $scope.dataTmp;		
-						console.log($scope.data.results);			
+						//console.log($scope.data.results);			
 						//console.log($scope.data.results);
 						s=limit+1, e=limit+limit+1, time=5000, pages--;												
 						//timeout();							
@@ -170,6 +170,17 @@ app.controller('appCtrl',function($scope, $route, $rootScope, $routeParams, $tim
 			}			
 			timeout();	
 	}
+		
+	/* search functionality starts */	
+	$scope.$watch('search', function(newval, oldval){		
+			if($scope.db && newval){
+				dataService.getData("/3/search/movie",'&query=' + newval).success(function(data){
+				$scope.subview = "dbpage";						
+				$scope.data = dataService.setPath(data, null, "w185");						
+			});	
+		}
+	});
+	/* search functionality XX */
 		
 			
 });
@@ -257,7 +268,7 @@ app.directive("innerFade", function () {
 
 function ani(elem){
 	elem.css('opacity',0);
-	console.log(elem.css('opacity'));	
+		
 	elem.animate({opacity:1},3000, function(){
 			$(this).animate({opacity:0},3000, function(){
 					if($(this).next().length) ani($(this).next());
