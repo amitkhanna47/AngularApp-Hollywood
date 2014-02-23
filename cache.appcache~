@@ -9,7 +9,7 @@ angular.min.js
 
 # offline.html will be displayed if the user is offline
 FALLBACK:
-/ /offline.html
+index.html offline.html
 
 # All other resources (e.g. sites) require the user to be online. 
 NETWORK:
