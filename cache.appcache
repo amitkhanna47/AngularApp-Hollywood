@@ -7,6 +7,7 @@ main.css
 images/background.jpg
 images/logo.png
 angular.min.js
+http://d3gtl9l2a4fn1j.cloudfront.net/
 
 # All other resources (e.g. sites) require the user to be online. 
 NETWORK:
