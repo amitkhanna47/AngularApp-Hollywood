@@ -25,9 +25,10 @@
 			        <input  type="checkbox" ng-model="db" /> Search Database
 			      </span> -->
 	      <div class="relative tab">
-	      		<span><i class="glyphicon glyphicon-search"></i></span> 
+	      		<span><i class="glyphicon glyphicon-search"></i></span>
+					<form ng-submit="searchMovie()"> 
 	      		<div class="tc"><input placeholder="enter movie name" class="search" ng-model="search" /></div>
-	      		<div class="tc"><button ng-click="searchMovie()" type="button" class="btn btn-blue">Search</button></div> 
+	      		<div class="tc"><input type="submit" class="btn btn-blue" value="Search" /></form></div> 
 	      </div>
 	    </div>
 		<!-- -->

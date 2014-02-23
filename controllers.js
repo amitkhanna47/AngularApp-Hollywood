@@ -179,7 +179,7 @@ app.controller('appCtrl',function($scope, $route, $rootScope, $routeParams, $tim
 		if(!newval) $scope.subview = requestService.getSection("");
 	})
 		
-	$scope.searchMovie = function(){
+	$scope.searchMovie = function(){			
 			if(!$scope.search)
 				{				
 					$scope.subview = requestService.getSection("");
