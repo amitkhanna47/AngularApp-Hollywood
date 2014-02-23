@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
-<html ng-app="entApp" id="ng-app" xmlns:ng="http://angularjs.org">
+<html ng-app="entApp" id="ng-app" xmlns:ng="http://angularjs.org" manifest="cache.appcache">
 
 <head>
 <title>Moviewood | Amit Khanna's App</title>
@@ -26,7 +26,7 @@
 			      </span> -->
 	      <div class="relative tab">
 	      		<span><i class="glyphicon glyphicon-search"></i></span>
-	      		<form name="search" ng-submit="searchMovie()"> 
+					<form ng-submit="searchMovie()"> 
 	      		<div class="tc"><input placeholder="enter movie name" class="search" ng-model="search" /></div>
 	      		<div class="tc"><input type="submit" class="btn btn-blue" value="Search" /></form></div> 
 	      </div>
