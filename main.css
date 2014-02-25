@@ -109,8 +109,6 @@ color:#cdf1ff;
 	font-weight:bold;
 }
 
-.fr{}
-
 
 img{
 max-width:100%;
@@ -158,9 +156,9 @@ font-size: 1em;
 	font-size: 1em;
 	margin-left: 0px;
 	text-align: center;
-	animation: fadeStyle 3s infinite;
-	-moz-animation: fadeStyle 3s infinite;
-	-webkit-animation: fadeStyle 3s infinite;
+	animation: fadeStyle 5s infinite;
+	-moz-animation: fadeStyle 5s infinite;
+	-webkit-animation: fadeStyle 5s infinite;
 	position: absolute;	
 }
 
@@ -227,10 +225,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
 @-webkit-keyframes fadeStyle
 {
 0% {opacity: 0;}
-20% {-webkit-transform:rotate(-360deg);}
-40% {-webkit-transform:rotate(0);}
-60% {opacity: 1; -webkit-transform:scale(0.2);}
-80% {opacity: 1; -webkit-transform:scale(1);}
+10% {-webkit-transform:rotate(-360deg);}
+20% {-webkit-transform:rotate(0);}
+30% {opacity: 1; -webkit-transform:scale(0.2);}
+40% {opacity: 1; -webkit-transform:scale(1);}
 100% {opacity: 1;}
 }
 
@@ -260,7 +258,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
 
 .fright{
 	float:right;
-	max-width:50%;
+	max-width:70%;
+	margin-top:7px;	
 }
 
 .light{
@@ -275,14 +274,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
 	color:rgb(39,125,201);
 }
 
-input.search{	
-	border-radius: 10px;
-	background:#000;
+input.search {
+	border-radius: 10px 0px 0px 10px;
+	background: #000;
 	border: 1px solid #333;
 	box-shadow: 0 1px 2px #000 inset, 0 1px 3px rgb(84,80,80);
-	padding:5px 7px 3px 25px;
-	outline:0;
-	width:50px;	
+	padding: 5px 7px 5px 25px;
+	outline: 0;
+	width:100%;	
+	margin-right: -5px;
+	vertical-align: middle;	
+	display:block;
+	color:#fff;
 }
 
 .search-box .relative{
@@ -300,10 +303,10 @@ input.search{
 	padding: 8px 12px;
 }
 
-input.search:focus, input.search:hover{
+/*input.search:focus, input.search:hover{
 	width:300px;
-	background: #666;
-}
+	background: #fff;
+}*/
 
 .search-box {
 	position: relative;
@@ -404,6 +407,14 @@ position:absolute;
 	
 }
 
+.tab{
+	display:table;
+}
+
+.tc{
+	display:table-cell;
+}
+
 @media screen and (max-width:767px){
 	.toggle{
 		height:50px;
@@ -416,11 +427,8 @@ position:absolute;
 	
 	.search-box {
 		margin: 9px 0 0 0;
-	}
-	
-	input.search{	
-		width:100%;			
 	}	
+
 	input.search:hover, input.search:focus{	
 		width:100%;			
 	}	
@@ -497,5 +505,14 @@ position:absolute;
     opacity:0;
 }
 
+/* setup bootstrap custom */
+.btn{
+	padding:5px 10px;
+	line-height:inherit;
+}
+
+.btn-blue{
+	background:#2884D2;
+}
 
 

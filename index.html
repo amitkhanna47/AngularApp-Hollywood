@@ -2,6 +2,7 @@
 <html ng-app="entApp">
 
 <head>
+<title>Moviewood | Amit Khanna's App</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">  
 <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css" />
 <link rel="stylesheet" href="main.css" />
@@ -17,16 +18,20 @@
 <div class="main col-xs-spacv0 container">
 	<h4 class="fadedStyle hidden-xs"><img src="images/logo.png" /></h4>	
 	<div class="fright"> 
-		<div class="search-box">			
+			
 			<!-- -->
 		 <div class="input-group">
-	      <span class="input-group-addon">
-	        <input  type="checkbox" ng-model="db" /> Database {{db}}
-	      </span>
-	      <div class="relative"><span><i class="glyphicon glyphicon-search"></i></span> <input class="search mr20" ng-model="search" /></div>
+			      <!--<span class="input-group-addon">
+			        <input  type="checkbox" ng-model="db" /> Search Database
+			      </span> -->
+	      <div class="relative tab">
+	      		<span><i class="glyphicon glyphicon-search"></i></span> 
+	      		<div class="tc"><input placeholder="enter movie name" class="search" ng-model="search" /></div>
+	      		<div class="tc"><button ng-click="searchMovie()" type="button" class="btn btn-blue">Search</button></div> 
+	      </div>
 	    </div>
 		<!-- -->
-		</div>		
+				
 	</div>
 	<div ng-switch="subview">		
 		<div ng-switch-when="standard" ng-include="'standard.html'"></div>

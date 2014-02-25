@@ -171,15 +171,25 @@ app.controller('appCtrl',function($scope, $route, $rootScope, $routeParams, $tim
 			timeout();	
 	}
 		
-	/* search functionality starts */	
-	$scope.$watch('search', function(newval, oldval){		
-			if($scope.db && newval){
-				dataService.getData("/3/search/movie",'&query=' + newval).success(function(data){
-				$scope.subview = "dbpage";						
-				$scope.data = dataService.setPath(data, null, "w185");						
-			});	
-		}
-	});
+	/* search functionality starts */
+	$scope.$watch('search', function(newval, oldval){
+		if(!newval) $scope.subview = requestService.getSection("");
+	})
+		
+	$scope.searchMovie = function(){
+			if(!$scope.search)
+				{				
+					$scope.subview = requestService.getSection("");
+					return;
+			}	
+			else {										
+				dataService.getData("/3/search/movie",'&query=' + $scope.search).success(function(data){
+					$scope.subview = "dbpage";											
+					$scope.searchData = dataService.setPath(data, null, "w185");
+																
+				});					
+			}
+	}
 	/* search functionality XX */
 		
 			
