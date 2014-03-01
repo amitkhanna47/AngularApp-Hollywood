@@ -14,8 +14,10 @@
 <div class="main col-xs-spacv0 container">
 	<h4 class="fadedStyle hidden-xs"><img src="images/logo.png" /></h4>
 		<br /><br /><br /><br />	
-		<h1 style="text-align:center; color:red">Oops! <br />you're currently offline <br />Please check network connection</h1>						
-	</div>	
+		<h1 style="text-align:center; color:red">Oops! <br />You're offline or at wrong location :(<br />
+		Please check network connection  <br />or <br/> <br /><a class="link" href="https://amitkhanna47.github.io/AngularApp-Hollywood">Let's get back to home page</a>		
+		</h1>						
+</div>	
 </div>
 </body>
 </html> 
