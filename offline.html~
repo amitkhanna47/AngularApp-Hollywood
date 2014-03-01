@@ -2,7 +2,7 @@
 <html ng-app="entApp" id="ng-app" xmlns:ng="http://angularjs.org">
 
 <head>
-<title>Moviewood | Amit Khanna's App</title>
+<title>Moviewood | Not found</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">  
 <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css" />
 <link rel="stylesheet" href="main.css" />
@@ -15,7 +15,7 @@
 	<h4 class="fadedStyle hidden-xs"><img src="images/logo.png" /></h4>
 		<br /><br /><br /><br />	
 		<h1 style="text-align:center; color:red">Oops! <br />You're offline or at wrong location :(<br />
-		Please check network connection  <br />or <br/> <br /><a class="link" href="https://amitkhanna47.github.io/AngularApp-Hollywood">Let's get back to home page</a>		
+		 <br />or <br/> <br /><a class="link" href="https://amitkhanna47.github.io/AngularApp-Hollywood">Let's get back to home page</a>		
 		</h1>						
 </div>	
 </div>
