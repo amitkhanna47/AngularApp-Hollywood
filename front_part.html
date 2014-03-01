@@ -3,6 +3,7 @@
 	<p><i>Las Vegas</i> is the story of four 70-ish friends, popularly known as the Flatbush Four in their youth – bachelor Billy (Michael Douglas), widower Paddy (Robert De Niro), divorced Archie (Morgan Freeman) and long-married husband Sam (Kevin Kline). They have been best friends for almost six decades. But with each passing year, they find the spark missing in their lives, that was once in full swing during their glorious days, to the fullest, on the streets of Brooklyn.</p>
 	
 	<h3>Popular Now </h3>
+		<div ng-show="loader" id="loader"><img src="images/loader.gif" /></div>
 		<ul class="rowUl animatedRowUI">
 			<li class="col-md-2 col-sm-4 col-xs-6 col-xxs" ng-repeat="poster_path in data.results | filter:search" ng-animate="'animate'">						
 				<a href="#/latest/released/movies/{{poster_path.id}}"><img ng-src="{{poster_path.poster_path}}" /></a>

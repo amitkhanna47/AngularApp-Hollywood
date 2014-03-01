@@ -2,6 +2,7 @@
 	<p><img  class="mr10" ng-src="{{moviDetails.poster_path}}" width="100" align="left" /></p>
 	<div><h2><span class="blueText">{{moviDetails.title}}</span></h2></div>
 	<h3>Overview</h3>
+	<div ng-show="loader" id="loader"><img src="images/loader.gif" /></div>
 	<p>{{moviDetails.overview}}</p>
 	
 	<ul class="fleft mr20 light">

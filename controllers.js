@@ -128,7 +128,8 @@ app.service("dataService",function($http){
 
 app.controller('appCtrl',function($scope, $route, $rootScope, $routeParams, $timeout, requestService, dataService){
 	global = $scope;
-	$scope.anim = false;
+	$scope.anim = false;	
+	$scope.loader = true;
 		
 	$scope.$on("$routeChangeSuccess",function(){
 		$scope.anim = false;		
@@ -140,9 +141,11 @@ app.controller('appCtrl',function($scope, $route, $rootScope, $routeParams, $tim
 
 	$scope.$on("$requestContextChanged",function(){		
 		$scope.subview = requestService.getSection("");
-	});			
+	});
 	
-	dataService.getData("/3/movie/now_playing").success(function(data){			
+	
+	dataService.getData("/3/movie/now_playing").success(function(data){
+			$scope.loader = false;			
 			$scope.dataTmp = dataService.setPath(data, null, "w185");
 			//console.log(data);
 			$scope.fadeRandomRepeat(10);			
@@ -214,14 +217,16 @@ app.controller('standardCtrl',function($scope, $route, $routeParams, requestServ
 
 app.controller('latestCtrl',function($scope, $route, $routeParams, requestService, dataService){
 		$scope.subview = requestService.getSection('standard.latest', $scope);		
+		$scope.loader = true;
 		
 		$scope.$on("$requestContextChanged",function(){
 			$scope.subview = requestService.getSection('standard.latest', $scope);
-		});			
+		});		
 		
 		$scope.latestType == 'released' ? req=dataService.getData("/3/movie/now_playing") : $scope.latestType == 'upcoming' ? req = dataService.getData("/3/movie/upcoming") : '';
 		
-		req.success(function(data){			
+		req.success(function(data){
+			$scope.loader = false;			
 			$scope.data = data;
 			$scope.data = dataService.setPath(data, null, "w185");
 			//console.log(data);			
@@ -231,21 +236,26 @@ app.controller('latestCtrl',function($scope, $route, $routeParams, requestServic
 
 
 app.controller('moviDetailsCtrl',function($scope, $route, $rootScope, $routeParams, requestService, dataService){		
-		$scope.subview = requestService.getSection('standard.latest.movi_details');		
+		$scope.subview = requestService.getSection('standard.latest.movi_details');
+		$scope.loader = true;
+				
 		$scope.moviId = $routeParams.moviId;
 		$scope.$on("$requestContextChanged",function(){			
 			$scope.subview = requestService.getSection('standard.latest.movi_details');
 		});					
-		dataService.getData("/3/movie/" + $routeParams.moviId + "/images").success(function(data){			
+		dataService.getData("/3/movie/" + $routeParams.moviId + "/images").success(function(data){
+			$scope.loader = false;			
 			$rootScope.moviPosters = dataService.setPath(data, null, "w1000");			
 			//console.log($scope.moviPosters);			
 		});
 });
 
 app.controller('moviDetailPageCtrl',function($scope, $route, $routeParams, requestService, dataService){
-	dataService.getData("/3/movie/" + $routeParams.moviId).success(function(data){			
+	$scope.loader = true;
+	dataService.getData("/3/movie/" + $routeParams.moviId).success(function(data){						
 			//$scope.moviDetails = data;			
 			$scope.moviDetails = dataService.setPath(data, null, "w500");
+			$scope.loader = false;
 			//console.log(data);			
 		});		
 });
@@ -255,8 +265,10 @@ app.controller('moviPosterPageCtrl',function($scope, $route, $routeParams, reque
 });
 
 app.controller('moviCastPageCtrl',function($scope, $route, $routeParams, requestService, dataService){
+	
 	dataService.getData("/3/movie/" + $routeParams.moviId + "/credits").success(function(data){			
 			$scope.moviCast = dataService.setPath(data, null, "w185");						
+			$scope.loader = false;
 			//console.log($scope.moviReviews);			
 		});		
 });
@@ -284,7 +296,7 @@ function ani(elem){
 					if($(this).next().length) ani($(this).next());
 					else
 					{						
-						ani($('.hide img').eq(0));
+						ani($('.animatedBack img').eq(0));
 					}
 			});
 	});		  
