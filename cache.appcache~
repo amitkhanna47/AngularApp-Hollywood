@@ -3,17 +3,15 @@ CACHE MANIFEST
 
 # Explicitly cached entries
 index.html
+front.html
+front_part.html
+standard.html
 main.css
 vendor/bootstrap/css/bootstrap.css
 images/background.jpg
 images/logo.png
 angular.min.js
 controllers.js
-http://d3gtl9l2a4fn1j.cloudfront.net/
-
-# All other resources (e.g. sites) require the user to be online. 
-NETWORK:
-*
 
 # offline.html will be displayed if the user is offline
 FALLBACK:
