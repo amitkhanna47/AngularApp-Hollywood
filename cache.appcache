@@ -17,4 +17,4 @@ NETWORK:
 
 # offline.html will be displayed if the user is offline
 FALLBACK:
-/ offline.html
+o.html offline.html
