@@ -2,7 +2,7 @@
 <html ng-app="entApp" id="ng-app" xmlns:ng="http://angularjs.org" manifest="cache.appcache">
 
 <head>
-<title>Moviewood | Amit Khanna's App</title>
+<title>Moviewood | Hollywood latest releases, Upcoming Movies</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">  
 <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css" />
 <link rel="stylesheet" href="main.css" />

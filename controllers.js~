@@ -27,6 +27,12 @@ app.config(function($routeProvider){
 		}
 	)
 	.when(
+		"/latest/:latestType/:categoryId/:moviId/trailers",
+		{
+			action:"standard.latest.movi_details.trailers"
+		}
+	)
+	.when(
 		"/latest/:latestType/:categoryId/:moviId/castcrew",
 		{
 			action:"standard.latest.movi_details.cast"
@@ -179,8 +185,7 @@ app.controller('appCtrl',function($scope, $route, $rootScope, $routeParams, $tim
 		if(!newval) $scope.subview = requestService.getSection("");
 	})
 		
-	$scope.searchMovie = function(){
-			alert("aa");
+	$scope.searchMovie = function(){			
 			if(!$scope.search)
 				{				
 					$scope.subview = requestService.getSection("");
@@ -262,7 +267,16 @@ app.controller('moviDetailPageCtrl',function($scope, $route, $routeParams, reque
 });
 
 app.controller('moviPosterPageCtrl',function($scope, $route, $routeParams, requestService, dataService){
-				
+							
+});
+
+app.controller('moviTrailerPageCtrl',function($scope, $route, $routeParams, requestService, dataService){
+	$scope.loader = true;
+	dataService.getData("/3/movie/" + $routeParams.moviId + "/trailers").success(function(data){											
+			$scope.moviTrailers = dataService.setPath(data, null, "w500");
+			$scope.loader = false;
+			console.log($scope.moviTrailers);			
+		});						
 });
 
 app.controller('moviCastPageCtrl',function($scope, $route, $routeParams, requestService, dataService){

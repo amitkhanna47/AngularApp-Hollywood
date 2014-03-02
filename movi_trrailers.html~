@@ -1,0 +1,9 @@
+<div ng-controller="moviTrailerPageCtrl">
+	<div ng-show="loader" id="loader"><img src="images/loader.gif" /></div>		
+	<ul class="stairStyle">
+		<li ng-repeat="backdrop in moviPosters.backdrops">
+			<span ng-hide="backdrop.file_path">Loading...</span>
+			<img ng-src="{{backdrop.file_path}}" />
+		</li>
+	</ul>		
+</div>

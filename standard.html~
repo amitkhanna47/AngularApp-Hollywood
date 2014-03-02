@@ -6,7 +6,8 @@
 		<div class="navbar-collapse collapse">	
 			<ul>			
 				<li><a href="#/home">Home</a></li>
-				<li ng-class="{activeBlk: subview=='latest'}"><a href="#/latest/released/movies">Movies {{latestType}}</a></li>				
+				<li ng-class="{activeBlk: subview=='latest'}"><a href="#/latest/released/movies">Movies {{latestType}}</a></li>
+				<li><a href="#/home">Trailers</a></li>
 				<li ng-class="{activeBlk: subview=='credits'}"><a href="#/credits">Credits</a></li>
 			</ul>
 		</div>

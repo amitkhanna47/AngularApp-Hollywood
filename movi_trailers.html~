@@ -1,0 +1,10 @@
+<div ng-controller="moviTrailerPageCtrl">
+	<div ng-show="loader" id="loader"><img src="images/loader.gif" /></div>		
+	<ul class="stairStyle">
+		<li ng-repeat="trailer in moviTrailers.youtube">
+			<iframe width="420" height="345"
+				src="http://www.youtube.com/embed/{{trailer.source}}">
+			</iframe>
+		</li>
+	</ul>		
+</div>

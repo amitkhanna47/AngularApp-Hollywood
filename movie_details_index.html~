@@ -10,7 +10,7 @@
 					<div>
 						<div ng-switch-when="details" ng-include="'movi_details.html'">Loading...</div>				
 						<div ng-switch-when="posters" ng-include="'movi_posters.html'">Loading...</div>				
-						<div ng-switch-when="trailers" ng-include="'movi_trailers.html'">Loading...</div>
+						<div ng-switch-when="posters" ng-include="'movi_trailers.html'">Loading...</div>
 						<div ng-switch-when="cast" ng-include="'movi_cast.html'">Loading...</div>		
 					</div>
 						
