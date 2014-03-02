@@ -472,8 +472,13 @@ position:absolute;
 	
 	.col-xxs-auto{
 		width:auto;		
-	}
-	
+	}	
+}
+
+@media screen and (max-width:320px){
+		.horNav li{
+			margin: 0;
+		}
 }
 
 .animate-enter, 
