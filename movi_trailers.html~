@@ -2,9 +2,11 @@
 	<div ng-show="loader" id="loader"><img src="images/loader.gif" /></div>		
 	<ul class="stairStyle">
 		<li ng-repeat="trailer in moviTrailers.youtube">
-			<iframe width="420" height="345"
+		<div class="video-container">
+			<iframe class="" width="560" height="315"
 				src="http://www.youtube.com/embed/{{trailer.source}}">
 			</iframe>
+		</div>	
 		</li>
 	</ul>		
 </div>
