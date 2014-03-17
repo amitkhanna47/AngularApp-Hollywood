@@ -1,0 +1,14 @@
+<div class="popup-in" ng-controller="peoplePopCtrl">
+		<div class="popup-content">
+			<div class="row">
+			<h2>Select your favourite star</h2>
+																	<!-- option | xyz [any name]] is same as array elements, in this case object -->
+			<select ng-model="starsList" ng-options="option.name for option in starsList"></select>
+			<input type="button" value="Show" class="btn btn-blue" />			
+			</div>		
+		</div>	
+	</div>
+
+
+
+

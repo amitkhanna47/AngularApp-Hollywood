@@ -288,6 +288,13 @@ app.controller('moviCastPageCtrl',function($scope, $route, $routeParams, request
 		});		
 });
 
+app.controller('peoplePopCtrl',function($scope, $route, $routeParams, requestService, dataService){	
+	dataService.getData("/3/person/popular").success(function(data){						
+			$scope.people = dataService.setPath(data, null, "w185");						
+			$scope.starsList = $scope.people.results;
+			console.log($scope.starsList);			
+		});		
+});
 
 /* directive for detail page animation */
 app.directive("innerFade", function () {

@@ -1,5 +1,5 @@
 <!DOCTYPE html> 
-<html ng-app="entApp" id="ng-app" xmlns:ng="http://angularjs.org" manifest="cache.appcache">
+<html id="entApp" ng-app="entApp" id="ng-app" xmlns:ng="http://angularjs.org" manifest="cache.appcache">
 
 <head>
 <title>Moviewood | Hollywood latest releases, Upcoming Movies</title>
@@ -10,6 +10,11 @@
 
 
 <body  ng-controller="appCtrl"  ng-class="{fadeBg: anim==true}">
+<!-- popup starts here -->
+<div id="popup" class="popup-initial">
+	
+</div>
+<!-- popup starts here -->
 
 <ul class="animatedBack hidden-xs" ng-show="anim"  ng-hide="!anim">				
 		<img  class="inner-fade" ng-repeat="backdrop in moviPosters.backdrops" src="{{backdrop.file_path}}" />	
