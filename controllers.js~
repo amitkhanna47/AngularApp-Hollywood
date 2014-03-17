@@ -9,6 +9,12 @@ app.config(function($routeProvider){
 		}
 	)
 	.when(
+		"/stars/popular",
+		{
+			action:"standard.stars"
+		}
+	)
+	.when(
 		"/latest/:latestType/:categoryId",
 		{
 			action:"standard.latest.list"
@@ -288,12 +294,19 @@ app.controller('moviCastPageCtrl',function($scope, $route, $routeParams, request
 		});		
 });
 
-app.controller('peoplePopCtrl',function($scope, $route, $routeParams, requestService, dataService){	
+app.controller('peoplePopCtrl',function($scope, $routeParams, $location, requestService, dataService){	
 	dataService.getData("/3/person/popular").success(function(data){						
-			$scope.people = dataService.setPath(data, null, "w185");						
-			$scope.starsList = $scope.people.results;
+			$scope.people = dataService.setPath(data, null, "w185").results;		
 			console.log($scope.starsList);			
-		});		
+		});
+	$scope.show = function(starId){
+			if(!starId) $location.path('/stars/popular');
+			else
+			{
+				$scope.a = starId;	
+			}
+	}		
+				
 });
 
 /* directive for detail page animation */
