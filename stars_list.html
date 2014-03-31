@@ -1,0 +1,10 @@
+<div ng-controller="starsListPageCtrl">	
+			<h3>Stars </h3>
+			<div ng-show="loader" id="loader"><img src="images/loader.gif" /></div>
+			<ul class="rowUl largeList">
+				<li class="col-md-3 col-sm-4 col-xs-6 col-xxs" ng-repeat="star in starsList | filter:search">						
+					<a href="#"><img ng-src="{{star.profile_path}}" /></a><br /> {{star.name}}
+				</li>		
+			</ul>			
+
+</div>

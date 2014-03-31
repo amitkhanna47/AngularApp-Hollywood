@@ -11,7 +11,7 @@ app.config(function($routeProvider){
 	.when(
 		"/stars/popular",
 		{
-			action:"standard.stars"
+			action:"standard.stars.list"
 		}
 	)
 	.when(
@@ -65,8 +65,7 @@ app.service("requestService",function(){
 
 	}	
 
-	function getSection(prefix){
-				
+	function getSection(prefix){				
 		if(action.indexOf(prefix + '.') == -1)
 		{			
 			return;
@@ -222,8 +221,8 @@ app.controller('frontCtrl',function($scope, $route, requestService, dataService)
 app.controller('standardCtrl',function($scope, $route, $routeParams, requestService){
 		$scope.subview = requestService.getSection('standard');
 		$scope.$on("$requestContextChanged",function(){
-			$scope.subview = requestService.getSection('standard');
-		});		
+			$scope.subview = requestService.getSection('standard');			
+		});				
 		$scope.latestType = $routeParams.latestType;		
 });
 
@@ -297,16 +296,33 @@ app.controller('moviCastPageCtrl',function($scope, $route, $routeParams, request
 app.controller('peoplePopCtrl',function($scope, $routeParams, $location, requestService, dataService){	
 	dataService.getData("/3/person/popular").success(function(data){						
 			$scope.people = dataService.setPath(data, null, "w185").results;		
-			console.log($scope.starsList);			
+			//console.log($scope.people);			
 		});
 	$scope.show = function(starId){
-			if(!starId) $location.path('/stars/popular');
+			if(!starId) {
+				$location.path('/stars/popular');
+			}
 			else
 			{
 				$scope.a = starId;	
 			}
 	}		
 				
+});
+
+app.controller('starsCtrl',function($scope, $routeParams, $location, requestService, dataService){
+	$scope.subview = requestService.getSection('standard.stars');	
+		$scope.$on("$requestContextChanged",function(){
+			$scope.subview = requestService.getSection('standard.stars');
+			//console.log($scope.subview)
+		});			
+});
+
+app.controller('starsListPageCtrl',function($scope, $routeParams, $location, requestService, dataService){		
+		dataService.getData("/3/person/popular").success(function(data){						
+			$scope.starsList = dataService.setPath(data, null, "w185").results;				
+			//console.log($scope.starsList);			
+		});
 });
 
 /* directive for detail page animation */
