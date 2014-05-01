@@ -576,7 +576,7 @@ position:absolute;
 
 .popup-in{
 	position: absolute;
-	float: left;				
+				
 }
 
 .popup-content{
@@ -596,7 +596,7 @@ position:absolute;
 	background:rgba(0,0,0,0.8) url(images/dotpattern.png) repeat scroll;
 	z-index:-1;
 	left:100%; top:0;
-transition:all 0.5s linear;	
+	transition:all 0.5s linear;	
 	-moz-transition:all 0.5s linear;
 	-webkit-transition:all 0.5s linear;	
 }

@@ -3,14 +3,17 @@
 			<div class="row">
 			<h2>Select your favourite star</h2>
 			<!-- option | xyz [any name]] is same as array elements, in this case object 
-			starlist should be a diff as a model as compared to people in ng-options. because it affacts selbox while changing.			
-			-->
-			<select ng-model="starsList" ng-options="option.id as option.name for option in people">				
-			</select>			
+			starlist should be a diff as a model as compared to people in ng-options. because it affacts selbox while changing.
 			
+			                                         use option below to send complete array[xyz] elem of star or option.id for val only
+	          <select ng-model="starsList" ng-options="option.id as option.name for option in people">			
+			-->
+			<select ng-model="starsList" ng-options="option as option.name for option in people">				
+			</select>			
+			{{starsList}}
 			<input type="button" value="Show" class="btn btn-blue" ng-click="show(starsList)" />			
 			<input type="button" value="All Stars" class="btn btn-blue" ng-click="show()" />
-			{{a}}
+			
 			</div>		
 		</div>	
 	</div>

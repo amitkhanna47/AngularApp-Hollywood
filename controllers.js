@@ -15,6 +15,12 @@ app.config(function($routeProvider){
 		}
 	)
 	.when(
+		"/stars/popular/:starName/:starId/details",
+		{
+			action:"standard.stars.details"
+		}
+	)
+	.when(
 		"/latest/:latestType/:categoryId",
 		{
 			action:"standard.latest.list"
@@ -98,8 +104,8 @@ app.service("dataService",function($http){
 	var prefix_url = "http://api.themoviedb.org";
 	function getData(url, addParams){
 			
-		url = addParams ? prefix_url + url + "?api_key=b293ffe7d4a175c739c5902ef154a554&callback=JSON_CALLBACK" + addParams : prefix_url + url + "?api_key=b293ffe7d4a175c739c5902ef154a554&callback=JSON_CALLBACK";
-			
+		url = addParams ? prefix_url + url + "?api_key=b293ffe7d4a175c739c5902ef154a554&callback=JSON_CALLBACK" + addParams : prefix_url + url + "?api_key=b293ffe7d4a175c739c5902ef154a554&callback=JSON_CALLBACK";			
+		console.log(url)		
 		return $http.jsonp(url);	
 				
 	}
@@ -284,8 +290,7 @@ app.controller('moviTrailerPageCtrl',function($scope, $route, $routeParams, requ
 		});						
 });
 
-app.controller('moviCastPageCtrl',function($scope, $route, $routeParams, requestService, dataService){
-	
+app.controller('moviCastPageCtrl',function($scope, $route, $routeParams, requestService, dataService){	
 	dataService.getData("/3/movie/" + $routeParams.moviId + "/credits").success(function(data){			
 			$scope.moviCast = dataService.setPath(data, null, "w185");						
 			$scope.loader = false;
@@ -295,34 +300,39 @@ app.controller('moviCastPageCtrl',function($scope, $route, $routeParams, request
 
 app.controller('peoplePopCtrl',function($scope, $routeParams, $location, requestService, dataService){	
 	dataService.getData("/3/person/popular").success(function(data){						
-			$scope.people = dataService.setPath(data, null, "w185").results;		
-			//console.log($scope.people);			
+			$scope.people = dataService.setPath(data, null, "w185").results;						
 		});
-	$scope.show = function(starId){
-			if(!starId) {
+	$scope.show = function(star){
+			if(!star) {
 				$location.path('/stars/popular');
 			}
 			else
-			{
-				$scope.a = starId;	
+			{				
+				$location.path('/stars/popular/' + star.name + '/' + star.id + '/details');
 			}
-	}		
-				
+			popup.closeAll();			
+	}						
 });
 
 app.controller('starsCtrl',function($scope, $routeParams, $location, requestService, dataService){
 	$scope.subview = requestService.getSection('standard.stars');	
 		$scope.$on("$requestContextChanged",function(){
-			$scope.subview = requestService.getSection('standard.stars');
-			//console.log($scope.subview)
+			$scope.subview = requestService.getSection('standard.stars');			
 		});			
 });
 
 app.controller('starsListPageCtrl',function($scope, $routeParams, $location, requestService, dataService){		
 		dataService.getData("/3/person/popular").success(function(data){						
-			$scope.starsList = dataService.setPath(data, null, "w185").results;				
-			//console.log($scope.starsList);			
+			$scope.starsList = dataService.setPath(data, null, "w185").results;			
 		});
+});
+
+app.controller('starsDetailPageCtrl',function($scope, $routeParams, $location, requestService, dataService){		
+		dataService.getData("/3/person/" + $routeParams.starId).success(function(data){			
+			$scope.starDetails = dataService.setPath(data, null, "w185");						
+			$scope.loader = false;
+			console.log($scope.starDetails);			
+		});		
 });
 
 /* directive for detail page animation */

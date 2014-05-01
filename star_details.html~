@@ -1,0 +1,27 @@
+<div ng-controller="starsDetailPageCtrl">	
+	<div><h2><span class="blueText">{{starDetails.name}}</span></h2></div>
+	<h3>Biography</h3>
+	<div ng-show="loader" id="loader"><img src="images/loader.gif" /></div>
+	<img class="ml20" style="float:right; border:1px solid gray" ng-src="{{starDetails.profile_path}}" />
+	<p>{{starDetails.biography}}</p>
+	
+	<ul class="fleft mr20 light">
+		<h3>Imdb_id</h3>
+		<li>{{starDetails.imdb_id}}</li>
+	</ul>
+	
+	<ul class="fleft mr20 light">
+		<h3>Birthday</h3>
+		<li>{{starDetails.birthday}}</li>
+		
+		<h3>Place of birth</h3>		
+		<li>{{starDetails.place_of_birth}} </li>
+		
+	</ul>
+	
+	<ul class="fleft mr20 light">		
+		<h3 ng-show="starDetails.homepage">Homepage</h3>		
+		<li><span ng-show="starDetails.homepage">{{starDetails.homepage}}</span></li>
+	</ul>
+	
+</div>

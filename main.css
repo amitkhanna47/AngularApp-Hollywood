@@ -576,7 +576,7 @@ position:absolute;
 
 .popup-in{
 	position: absolute;
-	float: left;				
+				
 }
 
 .popup-content{
@@ -618,4 +618,8 @@ position:absolute;
 	text-decoration: none;
 	cursor: pointer;
 	font-size: 1em;
+	}
+
+.fr{
+	padding-bottom: 30px;
 	}

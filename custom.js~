@@ -54,7 +54,13 @@ catch(e){
 			this.create();					
 		}
 		window[options.id] = new setPop(options);							
-	}
+	}	
+	
+	window['popup'] = popup;
+	popup.closeAll = function(){
+		alert('yes');
+	}	
+	
 	
 	for(p in popups){ if(p == pop2) popup(popups[p]);}	
 }
