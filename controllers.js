@@ -66,9 +66,7 @@ app.config(function($routeProvider){
 app.service("requestService",function(){	
 
 	function setContext(action){
-		sections = action.split('.');			
-		//console.log(sections);
-
+		sections = action.split('.');
 	}	
 
 	function getSection(prefix){				
@@ -86,8 +84,7 @@ app.service("requestService",function(){
 		
 		
 		if(sections[prefix.split('.').length] == 'movi_details'){
-			global.anim = true;			
-			//console.log(global.anim);			
+			global.anim = true;						
 		}
 		
 		return sections[prefix.split('.').length];		
@@ -105,7 +102,6 @@ app.service("dataService",function($http){
 	function getData(url, addParams){
 			
 		url = addParams ? prefix_url + url + "?api_key=b293ffe7d4a175c739c5902ef154a554&callback=JSON_CALLBACK" + addParams : prefix_url + url + "?api_key=b293ffe7d4a175c739c5902ef154a554&callback=JSON_CALLBACK";			
-		console.log(url)		
 		return $http.jsonp(url);	
 				
 	}
@@ -134,9 +130,7 @@ app.service("dataService",function($http){
 					}
 				}
 			}	
-		});
-		//console.log(sizer);
-		//sizer = "";						
+		});					
 		return data;				
 	}
 	
@@ -163,8 +157,7 @@ app.controller('appCtrl',function($scope, $route, $rootScope, $routeParams, $tim
 	
 	dataService.getData("/3/movie/now_playing").success(function(data){
 			$scope.loader = false;			
-			$scope.dataTmp = dataService.setPath(data, null, "w185");
-			//console.log(data);
+			$scope.dataTmp = dataService.setPath(data, null, "w185");			
 			$scope.fadeRandomRepeat(10);			
 		});	
 		
@@ -176,15 +169,14 @@ app.controller('appCtrl',function($scope, $route, $rootScope, $routeParams, $tim
 			var s = 0, e = limit, time = 0;					
 			function timeout(){
 				if(pages){					
-					//console.log(s); console.log(e); console.log(time);
+					
 					var appCtrlTime = $timeout(function(){						
 						$scope.dataTmp.results = backupResults;										
 						$scope.dataTmp.results = $scope.dataTmp.results.slice(s,e);
-						$scope.data = $scope.dataTmp;		
-						//console.log($scope.data.results);			
-						//console.log($scope.data.results);
+						$scope.data = $scope.dataTmp;	
+					
 						s=limit+1, e=limit+limit+1, time=5000, pages--;												
-						//timeout();							
+													
 					},time);	
 				}
 			}			
@@ -245,8 +237,7 @@ app.controller('latestCtrl',function($scope, $route, $routeParams, requestServic
 		req.success(function(data){
 			$scope.loader = false;			
 			$scope.data = data;
-			$scope.data = dataService.setPath(data, null, "w185");
-			//console.log(data);			
+			$scope.data = dataService.setPath(data, null, "w185");						
 		});
 		
 });
@@ -262,8 +253,7 @@ app.controller('moviDetailsCtrl',function($scope, $route, $rootScope, $routePara
 		});					
 		dataService.getData("/3/movie/" + $routeParams.moviId + "/images").success(function(data){
 			$scope.loader = false;			
-			$rootScope.moviPosters = dataService.setPath(data, null, "w1000");			
-			//console.log($scope.moviPosters);			
+			$rootScope.moviPosters = dataService.setPath(data, null, "w1000");						
 		});
 });
 
@@ -272,8 +262,7 @@ app.controller('moviDetailPageCtrl',function($scope, $route, $routeParams, reque
 	dataService.getData("/3/movie/" + $routeParams.moviId).success(function(data){						
 			//$scope.moviDetails = data;			
 			$scope.moviDetails = dataService.setPath(data, null, "w500");
-			$scope.loader = false;
-			//console.log(data);			
+			$scope.loader = false;			
 		});		
 });
 
@@ -286,7 +275,7 @@ app.controller('moviTrailerPageCtrl',function($scope, $route, $routeParams, requ
 	dataService.getData("/3/movie/" + $routeParams.moviId + "/trailers").success(function(data){											
 			$scope.moviTrailers = dataService.setPath(data, null, "w500");
 			$scope.loader = false;
-			//console.log($scope.moviTrailers);			
+						
 		});						
 });
 
@@ -294,7 +283,7 @@ app.controller('moviCastPageCtrl',function($scope, $route, $routeParams, request
 	dataService.getData("/3/movie/" + $routeParams.moviId + "/credits").success(function(data){			
 			$scope.moviCast = dataService.setPath(data, null, "w185");						
 			$scope.loader = false;
-			//console.log($scope.moviReviews);			
+						
 		});		
 });
 
@@ -330,8 +319,7 @@ app.controller('starsListPageCtrl',function($scope, $routeParams, $location, req
 app.controller('starsDetailPageCtrl',function($scope, $routeParams, $location, requestService, dataService){		
 		dataService.getData("/3/person/" + $routeParams.starId).success(function(data){			
 			$scope.starDetails = dataService.setPath(data, null, "w185");						
-			$scope.loader = false;
-			console.log($scope.starDetails);			
+			$scope.loader = false;						
 		});		
 });
 
