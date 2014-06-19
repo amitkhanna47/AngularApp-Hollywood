@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html id="entApp" ng-app="entApp" id="ng-app" xmlns:ng="http://angularjs.org" manifest="cache.appcache">
+
+<head>
+<title>Moviewood | Hollywood latest releases, Upcoming Movies</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css" />
+<link rel="stylesheet" href="main.css" />
+</head>
+
+
+<body  ng-controller="appCtrl"  ng-class="{fadeBg: anim==true}">
+
+<div style="padding:20px; background:#000; color:#fff;">
+<form name="msgForm">
+Submit<br />
+<div class="formgroup">
+<input type="text"></input> <br />
+</div>
+
+<div class="formgroup">
+<input type="password"></input> <br />
+</div>
+
+<div class="formgroup">
+<textarea></textarea> <br />
+</div>
+
+<button type="submit">Submit</button>
+
+</form>
+
+</div>
+
+
+<script type="text/javascript" src="angular.min.js"></script>
+<script type="text/javascript" src="vendor/jquery.js"></script>
+<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="controllers.js"></script>
+<script type="text/javascript" src="filters.js"></script>
+<script type="text/javascript" src="custom.js"></script>
+
+
+</body>
+</html> 
