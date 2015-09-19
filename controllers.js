@@ -110,7 +110,7 @@ app.service("dataService",function($http){
 	var sizer;
 	function setPath(data, url, size){	
 		sizer = "";
-		if(!urlLink) urlLink = url || "http://d3gtl9l2a4fn1j.cloudfront.net/t/p/";
+		if(!urlLink) urlLink = url || "http://image.tmdb.org/t/p/";
 				
 		if(!sizer){			
 			sizer = size || "w185";			
